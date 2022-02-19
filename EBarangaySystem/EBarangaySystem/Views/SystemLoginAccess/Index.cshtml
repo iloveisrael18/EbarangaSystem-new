@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EBarangaySystem.Models.system_login_access>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SYSTEM_USER_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USERNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PASSWORD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ROLE_ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SYSTEM_USER_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USERNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PASSWORD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ROLE_ID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.USER_ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.USER_ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.USER_ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
